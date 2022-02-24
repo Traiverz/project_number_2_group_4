@@ -1,1 +1,1 @@
-# project_number_2_group_4
+it's project made by students Sakharov Alexey, Buryak Roman, Shamsutdinov Vladislav and Sizdikov Raimber
