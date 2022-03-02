@@ -51,9 +51,6 @@ class viz_info(tk.Toplevel):
         self.v_info()
 
     def v_info(self):
-        f = open('baza.txt', 'r')
-        line = f.read()
-
         self.title('Вызовы')
         self.geometry('600x600')
         self.resizable(False, False)
