@@ -22,9 +22,11 @@ class Main(tk.Frame):
             helpmenu = Menu(mainmenu, tearoff=0)
             helpmenu.add_command(label="Полноэкранный режим")
             helpmenu.add_command(label="Оконный режим")
-            helpmenu.add_command(label="Цветовое оформление")
             color = Menu(helpmenu, tearoff=0)
-            helpmenu.add_cascade(label="Цветовое оформление",menu = helpmenu )
+            color.add_command(label="Авто оформление 1")
+            color.add_command(label="Авто оформление 2")
+            color.add_command(label="Авто оформление 2")
+            helpmenu.add_cascade(label="Цветовое оформление", menu=color)
 
             helpmenu2 = Menu(mainmenu, tearoff=0)
             helpmenu2.add_command(label="Справка")
