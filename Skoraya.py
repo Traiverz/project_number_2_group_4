@@ -23,7 +23,7 @@ class Main(tk.Frame):
             helpmenu.add_command(label="Полноэкранный режим")
             helpmenu.add_command(label="Оконный режим")
             color = Menu(helpmenu, tearoff=0)
-            color.add_command(label="Авто оформление 1")
+            color.add_command(command="", label="Авто оформление 1")
             color.add_command(label="Авто оформление 2")
             color.add_command(label="Авто оформление 2")
             helpmenu.add_cascade(label="Цветовое оформление", menu=color)
@@ -63,7 +63,7 @@ class info(tk.Toplevel):
         self.geometry('430x220')
         self.resizable(False, False)
 
-        label_name = tk.Label(self, text="Скорая помощь", font =('Times New Roman', 25))
+        label_name = tk.Label(self, text="Скорая помощь", font=('Times New Roman', 25))
         label_name.place(x=100, y=10)
         label_info = tk.Label(self,text="Данную программу разрабатывали:\n Буряк Роман,\nСахаров Алексей,\n Сыздыков Раимбек,\n Шамсутдинов Влад,\n с использованием python и Tkinter \n для контроля бригад скорой помощи")
         label_info.place(x=110, y=70)
