@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import *
+import openpyxl
 
 #Создаём главное меню и объекты на нём
 class Main(tk.Frame):
@@ -12,7 +13,7 @@ class Main(tk.Frame):
         self.root.config(bg="yellow")
 
     def gr(self):
-        self.root.config(bg="gray")
+        self.root.config(bg="red")
 
     def Dest(self):
         root.destroy()
@@ -30,18 +31,10 @@ class Main(tk.Frame):
             color = Menu(mainmenu, tearoff=0)
             helpmenu.add_command(label="Полноэкранный режим")
             helpmenu.add_command(label="Оконный режим")
-<<<<<<< HEAD
             helpmenu.add_cascade(label="Цветовое оформление", menu = color)
             color.add_command(label="Жёлтый", command = self.yel)
-            color.add_command(label="Серый", command=self.gr)
+            color.add_command(label="Красный", command=self.gr)
             color.add_separator()
-=======
-            color = Menu(helpmenu, tearoff=0)
-            color.add_command(command="", label="Авто оформление 1")
-            color.add_command(label="Авто оформление 2")
-            color.add_command(label="Авто оформление 2")
-            helpmenu.add_cascade(label="Цветовое оформление", menu=color)
->>>>>>> e337c20677510e559e5f6a18ce956267220b42f1
 
             helpmenu2 = Menu(mainmenu, tearoff=0)
             helpmenu2.add_command(label="Справка")
@@ -87,7 +80,7 @@ class info(tk.Toplevel):
         self.geometry('430x220')
         self.resizable(False, False)
 
-        label_name = tk.Label(self, text="Скорая помощь", font=('Times New Roman', 25))
+        label_name = tk.Label(self, text="Скорая помощь", font =('Times New Roman', 25))
         label_name.place(x=100, y=10)
         label_info = tk.Label(self,text="Данную программу разрабатывали:\n Буряк Роман,\nСахаров Алексей,\n Сыздыков Раимбек,\n Шамсутдинов Влад,\n с использованием python и Tkinter \n для контроля бригад скорой помощи")
         label_info.place(x=110, y=70)
@@ -108,10 +101,28 @@ class viz_info(tk.Toplevel):
         label_name.place(x=10, y=6)
         text_info = tk.Entry(self)
         text_info.place(x=100, y=10)
-        btn_ent = tk.Button(self,text='Ввод', compound=tk.TOP, width=16)
+        btn_ent = tk.Button(self,text='Ввод', compound=tk.TOP, width=16, command = self.lst)
         btn_ent.place(x=260, y=10)
-        box = Listbox(self, selectmode = EXTENDED,width = 90)
-        box.place(x=10, y=40)
+        language_listbox = Listbox(self, width=96)
+        language_listbox.place(x=10, y=50)
+
+    def lst(self):
+        llll = viz_info()
+        language_listbox = Listbox(self, width=96)
+        language_listbox.place(x=10, y=50)
+        wb = openpyxl.load_workbook('Скорая.xlsx')
+        wb.active = 4
+        sheet = wb.active
+        b = llll.text_info.get()
+        print(b, " <- Вот твои введённые")
+        for i in range(1, 20):
+            if sheet['A' + str(i)].value == b:
+                a = sheet['A' + str(i)].value + sheet['B' + str(i)].value \
+                    + sheet['C' + str(i)].value + sheet['D' + str(i)].value + sheet['E' + str(i)].value \
+                    + sheet['F' + str(i)].value + sheet['G' + str(i)].value
+                language_listbox.insert(END, a)
+            else:
+                pass
 
 #Создаём форму где будет храниться информация о самом коротком вызове
 class low_vizov(tk.Toplevel):
