@@ -288,17 +288,18 @@ def info():
     inform.deiconify()
 
 def sozdat_v_bazy():
-    a = str(text1.get())
-    b = str(text2.get())
-    c = str(text3.get())
-    d = str(text4.get())
-    e = str(text5.get())
-    f = str(text6.get())
-    g = str(text7.get())
+    a = text1.get()
+    b = text2.get()
+    c = text3.get()
+    d = text4.get()
+    e = text5.get()
+    f = text6.get()
+    g = text7.get()
+    k = 0
     wb.active = 4
     sheet = wb.active
-    for i in range(2, 100):
-        if str(sheet['A'+str(i)].value) == None:
+    for i in range(2, 1000):
+        if sheet['A'+str(i)].value == None and k == 0:
             sheet['A' + str(i)] = a
             sheet['B' + str(i)] = b
             sheet['C' + str(i)] = c
@@ -306,6 +307,7 @@ def sozdat_v_bazy():
             sheet['E' + str(i)] = e
             sheet['F' + str(i)] = f
             sheet['G' + str(i)] = g
+            k = 1
             wb.save('Скорая.xlsx')
     label8.config(text="Добавлено!")
 
